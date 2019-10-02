@@ -25,23 +25,23 @@
         <jdbc:script encoding="utf-8" location="classpath:db/populateDB.sql"/>
     </jdbc:initialize-database>
 
-<!--    postgreSQL datasource-->
-<!--    <bean id="dataSource"-->
-<!--          class="org.apache.tomcat.jdbc.pool.DataSource">-->
-<!--        <property name="driverClassName" value="org.postgresql.Driver"/>-->
-<!--        <property name="url" value="${database.url}"/>-->
-<!--        <property name="username" value="${database.username}"/>-->
-<!--        <property name="password" value="${database.password}"/>-->
-<!--    </bean>-->
+    postgreSQL datasource
+    <bean id="dataSource"
+          class="org.apache.tomcat.jdbc.pool.DataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="${database.url}"/>
+        <property name="username" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
+    </bean>
 
 
 <!--    hsql datasource-->
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-          p:driverClassName="org.hsqldb.jdbcDriver"
-          p:url="${database.url}"
-          p:username="${database.username}"
-          p:password="${database.password}"/>
+<!--    <bean id="dataSource"-->
+<!--          class="org.springframework.jdbc.datasource.DriverManagerDataSource"-->
+<!--          p:driverClassName="org.hsqldb.jdbcDriver"-->
+<!--          p:url="${database.url}"-->
+<!--          p:username="${database.username}"-->
+<!--          p:password="${database.password}"/>-->
 
 
     <tx:annotation-driven/>
@@ -64,8 +64,6 @@
                 <entry key="#{T(org.hibernate.cache.jcache.ConfigSettings).PROVIDER}" value="org.ehcache.jsr107.EhcacheCachingProvider"/>
                 <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_SECOND_LEVEL_CACHE}" value="true"/>
                 <entry key="#{T(org.hibernate.cfg.AvailableSettings).USE_QUERY_CACHE}" value="false"/> <!--default-->
-
-
 <!--
                  entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_SCRIPTS_ACTION}" value="drop-and-create"/>
                  <entry key="#{T(org.hibernate.cfg.AvailableSettings).HBM2DDL_SCRIPTS_CREATE_TARGET}" value="${TOPJAVA_ROOT}/config/ddl/create.ddl"/>
