@@ -16,9 +16,9 @@
     <context:annotation-config />
     <context:component-scan base-package="ru.vote.repository"/>
     <jpa:repositories base-package="ru.vote.repository"/>
-<!--    <context:property-placeholder location="classpath:db/postgres.properties" system-properties-mode="OVERRIDE"/>-->
-    <context:property-placeholder location="classpath:db/hsqldb.properties" system-properties-mode="OVERRIDE"/>
-<!--    <context:property-placeholder location="classpath:db/tomcat.properties" system-properties-mode="OVERRIDE"/>-->
+    <context:property-placeholder location="classpath:db/postgres.properties" system-properties-mode="OVERRIDE"/>
+<!--    <context:property-placeholder location="classpath:db/hsqldb.properties" system-properties-mode="OVERRIDE"/>-->
+    <context:property-placeholder location="classpath:db/tomcat.properties" system-properties-mode="OVERRIDE"/>
 
     <jdbc:initialize-database data-source="dataSource" enabled="${database.init}">
         <jdbc:script location="classpath:db/${jdbc.initLocation}"/>
