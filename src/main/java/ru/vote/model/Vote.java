@@ -38,6 +38,10 @@ public class Vote  extends AbstractBaseEntity{
         this.rest_id = rest_id;
     }
 
+    public Vote(Vote vote) {
+        this(vote.getId(), vote.getDate(), vote.getUser_id(), vote.getRest_id());
+    }
+
     public LocalDate getDate() {
         return date;
     }

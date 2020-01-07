@@ -31,7 +31,6 @@ public class User extends AbstractBaseEntity {
     @NotBlank
     @Size(min = 2, max = 100)
     @Column(name = "last_name", nullable = false)
-    //@SafeHtml(groups = {ru.vote.valid.View.Web.class})
     protected String last_name;
 
     @Column(name = "email", nullable = false, unique = true)

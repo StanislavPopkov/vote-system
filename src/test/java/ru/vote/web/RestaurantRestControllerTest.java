@@ -96,7 +96,7 @@ class RestaurantRestControllerTest extends AbstractControllerTest{
 
     @Test
     void updateInvalid() throws Exception {
-        Restaurant updated = BELKIN;
+        Restaurant updated = new Restaurant(BELKIN);
         updated.setName("");
         mockMvc.perform(MockMvcRequestBuilders.put(REST_URL + 103)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -134,7 +134,7 @@ class RestaurantRestControllerTest extends AbstractControllerTest{
 
     @Test
     void update() throws Exception {
-        Restaurant updated = KARL_FRIDRICH;
+        Restaurant updated = new Restaurant(KARL_FRIDRICH);
         updated.setName("Fridrich_K");
         mockMvc.perform(MockMvcRequestBuilders.put(REST_URL + 104)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -148,7 +148,7 @@ class RestaurantRestControllerTest extends AbstractControllerTest{
     @Test
     @Transactional(propagation = Propagation.NEVER)
     void updateDuplicate() throws Exception {
-        Restaurant updated = BELKIN;
+        Restaurant updated = new Restaurant(BELKIN);
         updated.setName("Karl Fridrich");
         mockMvc.perform(MockMvcRequestBuilders.put(REST_URL + 103)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -162,7 +162,7 @@ class RestaurantRestControllerTest extends AbstractControllerTest{
     @Test
     @Transactional(propagation = Propagation.NEVER)
     void createDuplicate() throws Exception {
-        Restaurant expected = BELKIN2;
+        Restaurant expected = new Restaurant(BELKIN2);
         expected.setName("Belkin");
         mockMvc.perform(MockMvcRequestBuilders.post(REST_URL)
                 .contentType(MediaType.APPLICATION_JSON)

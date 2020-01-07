@@ -13,7 +13,7 @@
        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
-    <context:annotation-config />
+
     <context:component-scan base-package="ru.vote.repository"/>
     <jpa:repositories base-package="ru.vote.repository"/>
     <context:property-placeholder location="classpath:db/hsqldb.properties" system-properties-mode="OVERRIDE"/>

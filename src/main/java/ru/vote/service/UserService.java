@@ -24,8 +24,6 @@ import static ru.vote.projectUtils.ValidationUtil.checkNotFound;
 import static ru.vote.projectUtils.ValidationUtil.checkNotFoundWithId;
 
 
-
-
 @Service
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class UserService implements UserDetailsService {
@@ -72,7 +70,6 @@ public class UserService implements UserDetailsService {
         Assert.notNull(user, "user must not be null");
         userRepository.save(prepareToSave(user, passwordEncoder));
     }
-
 
     @Transactional
     public void enable(int id, boolean enabled) {

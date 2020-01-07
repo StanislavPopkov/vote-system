@@ -30,12 +30,6 @@ public class Dish extends AbstractBaseEntity  {
     @NotNull
     protected Double price;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "rest_id", nullable = false)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
-//    @NotNull
-//    private Restaurant restaurant;
-
 
     //https://stackoverflow.com/questions/6311776/hibernate-foreign-keys-instead-of-entities
     @Column(name = "rest_id", nullable = false)
@@ -51,6 +45,10 @@ public class Dish extends AbstractBaseEntity  {
         this.dish_name = dish_name;
         this.price = price;
         this.rest_id = rest_id;
+    }
+
+    public Dish(Dish dish) {
+        this(dish.getId(), dish.getDate(), dish.getDish_name(), dish.getPrice(), dish.getRest_id());
     }
 
     public LocalDate getDate() {

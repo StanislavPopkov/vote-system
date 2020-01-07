@@ -82,7 +82,7 @@ class DishRestControllerTest extends AbstractControllerTest{
 
     @Test
     void updateInvalid() throws Exception {
-        Dish updated = DISH1;
+        Dish updated = new Dish(DISH1);
         updated.setDish_name("");
         mockMvc.perform(MockMvcRequestBuilders.put(DISH_URL + 106)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -120,7 +120,7 @@ class DishRestControllerTest extends AbstractControllerTest{
 
     @Test
     void update() throws Exception {
-        Dish updated = DISH1;
+        Dish updated = new Dish(DISH1);
         updated.setDish_name("Soap");
         mockMvc.perform(MockMvcRequestBuilders.put(DISH_URL + 105)
                 .contentType(MediaType.APPLICATION_JSON)

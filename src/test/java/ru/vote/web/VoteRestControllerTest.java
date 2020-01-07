@@ -99,7 +99,7 @@ class VoteRestControllerTest extends AbstractControllerTest {
                 .with(userHttpBasic(ADMIN))
                 .param("localTime", "23:59:00"));
 
-        Vote updated = VOTE2;
+        Vote updated = new Vote(VOTE2);
         updated.setRest_id(null);
         mockMvc.perform(MockMvcRequestBuilders.put(VOTE_URL + 112)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -141,7 +141,7 @@ class VoteRestControllerTest extends AbstractControllerTest {
                 .with(userHttpBasic(ADMIN))
                 .param("localTime", "23:59:00"));
 
-        Vote updated = VOTE2;
+        Vote updated = new Vote(VOTE2);
         updated.setRest_id(102);
         mockMvc.perform(MockMvcRequestBuilders.put(VOTE_URL + 112)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -154,7 +154,7 @@ class VoteRestControllerTest extends AbstractControllerTest {
 
     @Test
     void updateAfter11AM() throws Exception {
-        Vote updated = VOTE2;
+        Vote updated = new Vote(VOTE2);
         updated.setRest_id(104);
         mockMvc.perform(MockMvcRequestBuilders.put(VOTE_URL + 112)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -166,7 +166,7 @@ class VoteRestControllerTest extends AbstractControllerTest {
     @Test
     @Transactional(propagation = Propagation.NEVER)
     void updateDuplicate() throws Exception {
-        Vote updated = VOTE1;
+        Vote updated = new Vote(VOTE1);
         updated.setUser_id(101);
         mockMvc.perform(MockMvcRequestBuilders.put(VOTE_URL + 111)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -180,7 +180,7 @@ class VoteRestControllerTest extends AbstractControllerTest {
     @Test
     @Transactional(propagation = Propagation.NEVER)
     void createDuplicate() throws Exception {
-        Vote expected = VOTE1;
+        Vote expected = new Vote(VOTE1);
         expected.setId(null);
         mockMvc.perform(MockMvcRequestBuilders.post(VOTE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
