@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ru.vote.service.VoteService;
 import ru.vote.json.JsonUtil;
-
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -137,7 +136,7 @@ class VoteRestControllerTest extends AbstractControllerTest {
 
     @Test
     void update() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/rest/admin/users/localtime")
+        mockMvc.perform(MockMvcRequestBuilders.get("/rest/admin/localtime")
                 .with(userHttpBasic(ADMIN))
                 .param("localTime", "23:59:00"));
 

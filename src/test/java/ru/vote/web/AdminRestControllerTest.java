@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.vote.projectUtils.CheckTimeUtil;
 import ru.vote.service.UserService;
 import ru.vote.json.JsonUtil;
-
 import java.time.LocalTime;
 import java.util.Collections;
 

@@ -28,33 +28,35 @@ public class RestaurantRestController {
     @Autowired
     protected RestaurantService service;
 
-    //Получает список ресторанов с сегодняшней датой
+    /**
+    Получает список ресторанов с сегодняшней датой
+     */
     @GetMapping
     public List<Restaurant> getAllActual() {
         log.info("getAllActual");
-        List<Restaurant> list = service.getAllActual();
-        return list;
+        return service.getAllActual();
     }
-
-    //Доступ только у user с ролью role_admin
-    //Получает список всех ресторанов
+    /**
+    Доступ только у user с ролью role_admin
+    Получает список всех ресторанов
+     */
     @Secured("ROLE_ADMIN")
     @GetMapping("/total")
     public List<Restaurant> getAllHistory() {
         log.info("getAllHistory");
-        List<Restaurant> list = service.getAllHistory();
-        return list;
+        return service.getAllHistory();
     }
 
 
     @GetMapping("/{id}")
     public Restaurant get(@PathVariable int id) {
         log.info("get {}", id);
-        Restaurant res = service.get(id);
-        return res;
+        return service.get(id);
     }
 
-    //Доступ только у user с ролью role_admin
+    /**
+     Доступ только у user с ролью role_admin
+     */
     @Secured("ROLE_ADMIN")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Restaurant> createWithLocation(@Valid @RequestBody Restaurant restaurant) {
@@ -67,7 +69,9 @@ public class RestaurantRestController {
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
-    //Доступ только у user с ролью role_admin
+    /**
+     Доступ только у user с ролью role_admin
+     */
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -76,7 +80,9 @@ public class RestaurantRestController {
         service.delete(id);
     }
 
-    //Доступ только у user с ролью role_admin
+    /**
+     Доступ только у user с ролью role_admin
+     */
     @Secured("ROLE_ADMIN")
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)

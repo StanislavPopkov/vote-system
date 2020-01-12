@@ -20,15 +20,16 @@ import ru.vote.projectUtils.ValidationUtil;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.time.LocalTime;
 import java.util.List;
 
-//Доступ ко всем методам есть только у user с ролью role_admin
+/**
+Доступ ко всем методам есть только у user с ролью role_admin
+ */
 @RestController
 @RequestMapping(value = AdminRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class AdminRestController  {
 
-    public static final String REST_URL = "/rest/admin/users";
+    public static final String REST_URL = "/rest/admin";
 
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
@@ -47,8 +48,9 @@ public class AdminRestController  {
         log.info("get {}", id);
         return service.get(id);
     }
-
-    //Получает ресторан с максимальным количеством голосов
+    /**
+    Получает ресторан с максимальным количеством голосов
+     */
     @GetMapping("/result")
     public Restaurant getResultRestaurant() {
         log.info("get Result Restaurant");
@@ -65,11 +67,12 @@ public class AdminRestController  {
                 .buildAndExpand(created.getId()).toUri();
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
-
-    //изменяет время, после которого пользователи не могут изменить свой голос
+    /**
+    изменяет время, после которого пользователи не могут изменить свой голос
+     */
     @GetMapping("/localtime")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void setTime(@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)@RequestParam LocalTime localTime){
+    public void setTime(@DateTimeFormat(iso = DateTimeFormat.ISO.TIME)@RequestParam String localTime){
         CheckTimeUtil.setTimeToVote(localTime);
     }
 

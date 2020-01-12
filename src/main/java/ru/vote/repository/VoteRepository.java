@@ -16,8 +16,8 @@ public interface VoteRepository extends JpaRepository<Vote, Integer> {
     List<Vote> getAllActual(@Param("date") LocalDate date);
 
     @Modifying
-    @Query("DELETE FROM Vote v WHERE v.id=:id AND v.user_id=:userId")
-    int delete(@Param("id") int id, @Param("userId") int userId);
+    @Query("DELETE FROM Vote v WHERE v.id=:id")
+    int delete(@Param("id") int id);
 
     @Query(nativeQuery = true, value = "SELECT v.rest_id, COUNT(*) as mycount FROM votes v GROUP BY v.rest_id ORDER BY mycount DESC LIMIT 1")
     int getResultVote();

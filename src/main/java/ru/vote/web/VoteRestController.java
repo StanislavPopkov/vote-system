@@ -29,7 +29,9 @@ public class VoteRestController {
     @Autowired
     protected VoteService service;
 
-    //Получает список голосов на сегодняшнюю дату
+    /**
+    Получает список голосов на сегодняшнюю дату
+     */
     @GetMapping
     public List<Vote> getAllActual() {
         log.info("get All Actual votes");
@@ -37,8 +39,10 @@ public class VoteRestController {
         return list;
     }
 
-    //Доступ только у user с ролью role_admin
-    //Получает список всех голосов
+    /**
+    Доступ только у user с ролью role_admin
+    Получает список всех голосов
+     */
     @Secured("ROLE_ADMIN")
     @GetMapping("/total")
     public List<Vote> getAllHistory() {
@@ -66,7 +70,9 @@ public class VoteRestController {
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
-    //Доступ только у user с ролью role_admin
+    /**
+    Доступ только у user с ролью role_admin
+     */
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

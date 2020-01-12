@@ -32,17 +32,17 @@ public class DishRestController {
     @GetMapping()
     public List<Dish> getAll() {
         log.info("get All Dishes");
-        List<Dish> list = service.getAll();
-        return list;
+        return service.getAll();
     }
 
     @GetMapping("/{id}")
     public Dish get(@PathVariable int id) {
         log.info("get {}", id);
-        Dish res = service.get(id);
-        return res;
+        return service.get(id);
     }
-    //Доступ только у user с ролью role_admin
+    /**
+    Доступ только у user с ролью role_admin
+     */
     @Secured("ROLE_ADMIN")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Dish> createWithLocation(@Valid @RequestBody Dish dish) {
@@ -55,7 +55,9 @@ public class DishRestController {
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
-    //Доступ только у user с ролью role_admin
+    /**
+     Доступ только у user с ролью role_admin
+     */
     @Secured("ROLE_ADMIN")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -64,7 +66,9 @@ public class DishRestController {
         service.delete(id);
     }
 
-    //Доступ только у user с ролью role_admin
+    /**
+     Доступ только у user с ролью role_admin
+     */
     @Secured("ROLE_ADMIN")
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)

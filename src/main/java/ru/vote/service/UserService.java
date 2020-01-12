@@ -44,11 +44,13 @@ public class UserService implements UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @Transactional
     public User create(User user) {
         Assert.notNull(user, "user must not be null");
         return userRepository.save(prepareToSave(user, passwordEncoder));
     }
 
+    @Transactional
     public void delete(int id) {
         checkNotFoundWithId(userRepository.delete(id) != 0, id);
     }
@@ -66,6 +68,7 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll(SORT_NAME_EMAIL);
     }
 
+    @Transactional
     public void update(User user) {
         Assert.notNull(user, "user must not be null");
         userRepository.save(prepareToSave(user, passwordEncoder));
@@ -85,8 +88,9 @@ public class UserService implements UserDetailsService {
         }
         return new AuthorizedUser(user);
     }
-
-    //Получает id ресторана с max числом голосов, запрашивает и возвращает ресторан
+    /**
+    Получает id ресторана с max числом голосов, запрашивает и возвращает ресторан
+     */
     public Restaurant getResultRestaurantService(){
         int voteResultRest_id = voteService.resultVote();
         return restaurantService.get(voteResultRest_id);
