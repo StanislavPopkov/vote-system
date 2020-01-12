@@ -29,10 +29,10 @@ curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin?local
 curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/by?email=user2@yandex.ru<br>
 curl -u admin@gmail.com:admin -X DELETE http://localhost:8080/vote_system/rest/admin/102<br>
 curl -u admin@gmail.com:admin -d '{"name":"UserNew","last_name":"Userovich","email":"user3@yandex.ru", 
-"password":"pass1"}' -H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/admin<br>
+"password":"pass1"}' -H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/admin<br><br>
 curl -u admin@gmail.com:admin -d '{"id":114,"name":"UserUser","last_name":"Userovich","email":"user3@yandex.ru", 
 "password":"pass1", "enabled":true,"registered":"2020-01-11T20:28:10.358+0000","roles":["ROLE_USER"]}' 
--H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/admin/114<br>
+-H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/admin/114<br><br>
 curl -u admin@gmail.com:admin -X PATCH http://localhost:8080/vote_system/rest/admin/102?enabled=false<br>
 <br>
 <b>
@@ -42,10 +42,9 @@ curl -u user@yandex.ru:password http://localhost:8080/vote_system/rest/dishes<br
 curl -u user@yandex.ru:password http://localhost:8080/vote_system/rest/dishes/105<br>
 curl -u admin@gmail.com:admin -X DELETE http://localhost:8080/vote_system/rest/dishes/105<br>
 curl -u admin@gmail.com:admin -d '{"dish_name":"Sopa De Pollo","price":50.0,"rest_id":103}' 
--H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/dishes<br>
+-H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/dishes<br><br>
 curl -u admin@gmail.com:admin -d '{"id":114,"dish_name":"Sopa De Pollo Lux","price":60.0,"rest_id":103}' 
--H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/dishes/114
-{"id":114,"date":"2020-01-12","dish_name":"Sopa De Pollo","price":50.0,"rest_id":103}<br>
+-H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/dishes/114<br>
 <br>
 <b>
 RestaurantRestController<br>
@@ -55,14 +54,13 @@ curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/restaurants
 curl -u user@yandex.ru:password http://localhost:8080/vote_system/rest/restaurants/103<br>
 curl -u admin@gmail.com:admin -X DELETE http://localhost:8080/vote_system/rest/restaurants/103<br>
 curl -u admin@gmail.com:admin -d '{"name":"Belkin2"}' -H 'Content-Type: application/json' 
--X POST http://localhost:8080/vote_system/rest/restaurants<br>
+-X POST http://localhost:8080/vote_system/rest/restaurants<br><br>
 curl -u admin@gmail.com:admin -d '{"dish_name":"Sopa De Pollo","price":50.0,"rest_id":114}' 
--H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/dishes<br>
+-H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/dishes<br><br>
 curl -u admin@gmail.com:admin -d '{"id":114,"name":"Belkin2","dishList":
 [{"id":115,"dish_name":"Sopa De Pollo","price":50.0,"rest_id":116}]}' -H 'Content-Type: application/json' 
--X PUT http://localhost:8080/vote_system/rest/restaurants/114<br>
+-X PUT http://localhost:8080/vote_system/rest/restaurants/114<br><br>
 curl -u user@yandex.ru:password http://localhost:8080/vote_system/rest/restaurants/114<br>
-
 <br>
 <b>
 VoteRestController<br>
@@ -72,6 +70,6 @@ curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/votes/total
 curl -u user@yandex.ru:password http://localhost:8080/vote_system/rest/votes/111<br>
 curl -u admin@gmail.com:admin -X DELETE http://localhost:8080/vote_system/rest/votes/111<br>
 curl -u user@yandex.ru:password -d '{"rest_id":103}' -H 'Content-Type: application/json' 
--X POST http://localhost:8080/vote_system/rest/votes<br>
+-X POST http://localhost:8080/vote_system/rest/votes<br><br>
 curl -u user@yandex.ru:password -d '{"id":114,"user_id":100,"rest_id":103}' 
 -H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/votes/114<br>
