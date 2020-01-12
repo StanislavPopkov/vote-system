@@ -19,6 +19,7 @@ As a result, provide a link to github repository.
 
 It should contain the code and README.md with API documentation and curl commands to get data for voting and vote.
 
+<b>
 AdminRestController
 curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin
 curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/102
@@ -55,3 +56,4 @@ curl -u user@yandex.ru:password http://localhost:8080/vote_system/rest/votes/111
 curl -u admin@gmail.com:admin -X DELETE http://localhost:8080/vote_system/rest/votes/111
 curl -u user@yandex.ru:password -d '{"rest_id":103}' -H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/votes
 curl -u user@yandex.ru:password -d '{"id":114,"user_id":100,"rest_id":103}' -H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/votes/114
+</b>
