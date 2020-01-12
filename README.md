@@ -20,19 +20,19 @@ As a result, provide a link to github repository.
 It should contain the code and README.md with API documentation and curl commands to get data for voting and vote.
 
 <b>
-AdminRestController
-curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin
-curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/102
-curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/result
-curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin?localtime=12:00:00
-curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/by?email=user2@yandex.ru
-curl -u admin@gmail.com:admin -X DELETE http://localhost:8080/vote_system/rest/admin/102
+AdminRestController&#13;&#10;
+curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin&#13;&#10;
+curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/102&#13;&#10;
+curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/result&#13;&#10;
+curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin?localtime=12:00:00&#13;&#10;
+curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/by?email=user2@yandex.ru&#13;&#10;
+curl -u admin@gmail.com:admin -X DELETE http://localhost:8080/vote_system/rest/admin/102&#13;&#10;
 curl -u admin@gmail.com:admin -d '{"name":"UserNew","last_name":"Userovich","email":"user3@yandex.ru", 
-"password":"pass1"}' -H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/admin
+"password":"pass1"}' -H 'Content-Type: application/json' -X POST http://localhost:8080/vote_system/rest/admin&#13;&#10;
 curl -u admin@gmail.com:admin -d '{"id":114,"name":"UserUser","last_name":"Userovich","email":"user3@yandex.ru", 
 "password":"pass1", "enabled":true,"registered":"2020-01-11T20:28:10.358+0000","roles":["ROLE_USER"]}' 
--H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/admin/114
-curl -u admin@gmail.com:admin -X PATCH http://localhost:8080/vote_system/rest/admin/102?enabled=false
+-H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/admin/114&#13;&#10;
+curl -u admin@gmail.com:admin -X PATCH http://localhost:8080/vote_system/rest/admin/102?enabled=false&#13;&#10;
 </b>
 <b>
 DishRestController
