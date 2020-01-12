@@ -19,7 +19,7 @@ As a result, provide a link to github repository.
 
 It should contain the code and README.md with API documentation and curl commands to get data for voting and vote.
 
-<b>
+<textarea cols='60' rows='8'>
 AdminRestController&#13;&#10;
 curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin&#13;&#10;
 curl -u admin@gmail.com:admin http://localhost:8080/vote_system/rest/admin/102&#13;&#10;
@@ -33,7 +33,7 @@ curl -u admin@gmail.com:admin -d '{"id":114,"name":"UserUser","last_name":"Usero
 "password":"pass1", "enabled":true,"registered":"2020-01-11T20:28:10.358+0000","roles":["ROLE_USER"]}' 
 -H 'Content-Type: application/json' -X PUT http://localhost:8080/vote_system/rest/admin/114&#13;&#10;
 curl -u admin@gmail.com:admin -X PATCH http://localhost:8080/vote_system/rest/admin/102?enabled=false&#13;&#10;
-</b>
+</textarea>
 <b>
 DishRestController
 curl -u user@yandex.ru:password http://localhost:8080/vote_system/rest/dishes
